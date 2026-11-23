@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STAR WEB | Premium Bot</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --purple: #a855f7; --blue: #3b82f6; --bg: #050510; }
+body { background: var(--bg); color: white; font-family: 'Poppins', sans-serif; min-height: 100vh; overflow-x: hidden; }
+#stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.glow { position: fixed; width: 350px; height: 350px; border-radius: 50%; filter: blur(140px); opacity: .3; pointer-events: none; }
+.glow1 { background: #8b00ff; top: -100px; left: -100px; }
+.glow2 { background: #0066ff; bottom: -100px; right: -100px; }
+nav { width: 100%; padding: 23px 8%; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; border-bottom: 1px solid #ffffff12; }
+.brand { font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: 2px; background: linear-gradient(90deg,#c084fc,#60a5fa); -webkit-background-clip: text; color: transparent; }
+.status { font-size: 11px; color: #4ade80; border: 1px solid #4ade8044; padding: 7px 13px; border-radius: 30px; background: #4ade8010; }
+.hero { position: relative; z-index: 1; text-align: center; padding: 75px 20px 35px; }
+.tag { display: inline-block; padding: 8px 18px; border: 1px solid #a855f755; background: #a855f711; border-radius: 30px; color: #c084fc; font-size: 11px; letter-spacing: 2px; margin-bottom: 22px; }
+.hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(35px,7vw,65px); font-weight: 900; line-height: 1.2; background: linear-gradient(90deg,#fff,#c084fc,#60a5fa); -webkit-background-clip: text; color: transparent; }
+.hero p { color: #999; font-size: 14px; margin-top: 18px; line-height: 1.8; }
+.main { position: relative; z-index: 1; display: flex; justify-content: center; padding: 30px 18px 70px; }
+.card { width: 100%; max-width: 440px; padding: 35px; border-radius: 25px; border: 1px solid #ffffff18; background: linear-gradient(145deg,#ffffff10,#ffffff03); backdrop-filter: blur(20px); box-shadow: 0 20px 80px #0008, 0 0 35px #9333ea12; }
+.bot-icon { width: 90px; height: 90px; margin: 0 auto 22px; border-radius: 27px; display: flex; align-items: center; justify-content: center; font-size: 48px; background: linear-gradient(135deg,#7c3aed,#2563eb); box-shadow: 0 0 40px #8b5cf666; animation: float 3s infinite ease-in-out; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.card h2 { text-align: center; font-size: 22px; }
+.card .desc { text-align: center; color: #888; font-size: 12px; margin: 10px 0 28px; line-height: 1.7; }
+label { font-size: 12px; color: #ccc; display: block; margin-bottom: 10px; }
+.input-wrap { position: relative; margin-bottom: 20px; }
+input { width: 100%; padding: 17px; background: #080817; border: 1px solid #ffffff20; border-radius: 13px; color: white; outline: none; font-size: 14px; transition: .3s; }
+input:focus { border-color: #a855f7; box-shadow: 0 0 18px #a855f733; }
+button { width: 100%; padding: 17px; border: none; border-radius: 13px; color: white; background: linear-gradient(90deg,#9333ea,#2563eb); font-weight: 700; font-size: 14px; letter-spacing: 1px; cursor: pointer; box-shadow: 0 5px 25px #7c3aed44; transition: .3s; }
+button:hover { transform: translateY(-3px); box-shadow: 0 8px 35px #9333ea77; }
+#result { text-align: center; font-size: 14px; margin-top: 18px; color: #60a5fa; line-height: 1.7; }
+.code-box { font-family: 'Orbitron', sans-serif; font-size: 24px; letter-spacing: 4px; background: #ffffff15; padding: 12px; border-radius: 10px; margin-top: 10px; color: #4ade80; border: 1px dashed #4ade80; cursor: pointer; }
+.features { position: relative; z-index: 1; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 0 15px 55px; }
+.feature { width: 150px; padding: 20px 10px; border-radius: 15px; border: 1px solid #ffffff12; background: #ffffff06; text-align: center; }
+.feature .emoji { font-size: 25px; margin-bottom: 9px; }
+.feature h3 { font-size: 12px; }
+.feature p { font-size: 10px; color: #777; margin-top: 5px; }
+footer { position: relative; z-index: 1; text-align: center; padding: 25px 15px; border-top: 1px solid #ffffff12; color: #666; font-size: 11px; }
+footer span { color: #c084fc; }
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<nav>
+    <div class="brand">✦ STAR WEB</div>
+    <div class="status">● SYSTEM ONLINE</div>
+</nav>
+
+<section class="hero">
+    <div class="tag">✧ NEXT GENERATION TECHNOLOGY ✧</div>
+    <h1>STAR WEB</h1>
+    <p>Welcome to the Future of WhatsApp Bot Pairing.<br>Simple. Fast. Powerful.</p>
+</section>
+
+<section class="main">
+    <div class="card">
+        <div class="bot-icon">🤖</div>
+        <h2>Connect Your Bot</h2>
+        <p class="desc">Enter your WhatsApp number below<br>to start your pairing process.</p>
+        <label>WHATSAPP PHONE NUMBER</label>
+        <div class="input-wrap">
+            <input type="tel" id="number" placeholder="947XXXXXXXX" maxlength="15">
+        </div>
+        <button id="pairBtn" onclick="getCode()">✦ GENERATE PAIRING CODE</button>
+        <div id="result"></div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature"><div class="emoji">⚡</div><h3>FAST SYSTEM</h3><p>Quick interface</p></div>
+    <div class="feature"><div class="emoji">🔐</div><h3>SECURE</h3><p>Protect your account</p></div>
+    <div class="feature"><div class="emoji">💎</div><h3>PREMIUM UI</h3><p>Modern experience</p></div>
+</section>
+
+<footer>© 2026 <span>STAR WEB</span> | ALL RIGHTS RESERVED</footer>
+
+<script>
+async function getCode() {
+    const number = document.getElementById("number").value.trim().replace(/[^0-9]/g, '');
+    const result = document.getElementById("result");
+    const btn = document.getElementById("pairBtn");
+
+    if (!/^[0-9]{8,15}$/.test(number)) {
+        result.style.color = "#ff6666";
+        result.innerText = "⚠ Please enter a valid phone number (e.g., 94771234567).";
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerText = "⏳ GENERATING CODE...";
+    result.style.color = "#60a5fa";
+    result.innerText = "Connecting to WhatsApp servers, please wait...";
+
+    try {
+        const response = await fetch(`/pair?number=${number}`);
+        const data = await response.json();
+
+        if (data.code) {
+            result.innerHTML = `
+                <span style="color:#ccc; font-size:12px;">Enter this code in WhatsApp > Linked Devices:</span>
+                <div class="code-box" onclick="navigator.clipboard.writeText('${data.code}'); alert('Code Copied!')">${data.code}</div>
+                <span style="color:#888; font-size:11px;">(Click code to copy)</span>
+            `;
+        } else {
+            result.style.color = "#ff6666";
+            result.innerText = "⚠ " + (data.error || "Failed to generate code.");
+        }
+    } catch (err) {
+        result.style.color = "#ff6666";
+        result.innerText = "⚠ Server error. Please try again.";
+    } finally {
+        btn.disabled = false;
+        btn.innerText = "✦ GENERATE PAIRING CODE";
+    }
+}
+
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let stars = [];
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = Array.from({length: 100}, () => ({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        size: Math.random() * 1.5, speed: Math.random() * .5 + .1
+    }));
+}
+function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    stars.forEach(star => {
+        ctx.fillStyle = "rgba(200,180,255,.8)";
+        ctx.beginPath(); ctx.arc(star.x,star.y,star.size,0,Math.PI*2); ctx.fill();
+        star.y -= star.speed;
+        if(star.y < 0) { star.y = canvas.height; star.x = Math.random() * canvas.width; }
+    });
+    requestAnimationFrame(animate);
+}
+window.addEventListener("resize", resize); resize(); animate();
+</script>
+</body>
+</html>
