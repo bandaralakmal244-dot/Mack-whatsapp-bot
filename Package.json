@@ -1,0 +1,16 @@
+{
+  "name": "star-web-bot",
+  "version": "1.0.0",
+  "description": "STAR WEB Multi-User WhatsApp Bot with Mack AI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.8",
+    "express": "^4.19.2",
+    "pino": "^9.1.0",
+    "axios": "^1.7.2",
+    "fs-extra": "^11.2.0"
+  }
+}
